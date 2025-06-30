@@ -14,10 +14,10 @@ generate_commit_message() {
 }
 
 # Запускаем цикл для 10 коммитов
-for i in {1..10}; do
+for i in {1..5}; do
   echo "entry $i" >> log.txt
   git add .
-  export GIT_AUTHOR_DATE="$(date -d "$((RANDOM % 100 + 1)) days ago" '+%Y-%m-%dT12:00:00')"
+  export GIT_AUTHOR_DATE="$(date -d "$((RANDOM % 150 + 1)) days ago" '+%Y-%m-%dT12:00:00')"
   export GIT_COMMITTER_DATE="$GIT_AUTHOR_DATE"
   git commit -m "$(generate_commit_message)"
   git push origin main
